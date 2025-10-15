@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ============== Título de tu página ============== -->
+    <title>BIG BUSINESS SpA | Potenciamos Tu Crecimiento</title>
+    <!-- Script de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- ========== SECCIÓN DEL ENCABEZADO (HEADER) ========== -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- ============== Nombre de tu marca ============== -->
+            <a href="#" class="text-2xl font-bold text-gray-900">BIG BUSINESS</a>
+            
+            <!-- ============== Enlaces de navegación ============== -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition">Inicio</a>
+                <a href="#servicios" class="text-gray-600 hover:text-gray-900 transition">Servicios</a>
+                <a href="#gemini-feature" class="text-gray-600 hover:text-gray-900 transition">Ideas con IA</a>
+                <a href="#equipo" class="text-gray-600 hover:text-gray-900 transition">Nuestro Equipo</a>
+                <a href="#contacto" class="text-gray-600 hover:text-gray-900 transition">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== SECCIÓN PRINCIPAL (HERO) ========== -->
+        <section class="relative bg-cover bg-center text-white" style="background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2144&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="container mx-auto px-6 py-32 text-center relative z-10">
+                <!-- ============== Título y subtítulo principal ============== -->
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Potenciamos tu Crecimiento</h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-200">Estrategias audaces y soluciones innovadoras para negocios ambiciosos que buscan dominar su mercado.</p>
+                <a href="#servicios" class="bg-violet-600 text-white font-bold py-3 px-8 rounded-full hover:bg-violet-700 transition-transform transform hover:scale-105">
+                    Descubre Cómo
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== SECCIÓN DE PRODUCTOS / SERVICIOS DESTACADOS ========== -->
+        <section id="servicios" class="py-16 sm:py-24">
+            <div class="container mx-auto px-6">
+                 <!-- ============== Título de la sección ============== -->
+                <h2 class="text-3xl font-bold text-center mb-12">Nuestros Servicios Estratégicos</h2>
+                <!-- El contenido de esta sección se genera dinámicamente con JavaScript (ver al final del archivo) -->
+                <div id="items-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Las tarjetas de productos/servicios se insertarán aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECCIÓN DE IA GENERATIVA (GEMINI) ========== -->
+        <section id="gemini-feature" class="py-16 sm:py-24 bg-gray-100">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Impulsa tu Negocio con IA</h2>
+                <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">Describe tu idea o sector de negocio y nuestra IA, potenciada por Gemini, te dará ideas innovadoras para empezar.</p>
+                
+                <div class="max-w-2xl mx-auto">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input id="idea-input" type="text" placeholder="Ej: una cafetería con temática de libros" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-violet-500 focus:border-violet-500 transition">
+                        <button id="generate-button" class="bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-transform transform hover:scale-105 whitespace-nowrap">
+                            ✨ Generar Ideas
+                        </button>
+                    </div>
+                </div>
+    
+                <div id="loading-spinner" class="mt-8 hidden">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600 mx-auto"></div>
+                    <p class="mt-2 text-gray-500">Generando ideas...</p>
+                </div>
+    
+                <div id="ideas-output" class="mt-8 text-left max-w-3xl mx-auto">
+                    <!-- Las ideas generadas se mostrarán aquí -->
+                </div>
+                 <div id="error-message" class="mt-4 text-red-600 font-medium"></div>
+            </div>
+        </section>
+
+        <!-- ========== NUEVA SECCIÓN DE EQUIPO ========== -->
+        <section id="equipo" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Conoce a Nuestros Líderes</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                    <!-- Miembro del Equipo 1 -->
+                    <div class="p-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop" alt="Javier Torres" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg">
+                        <h3 class="font-bold text-xl mb-1">Javier Torres</h3>
+                        <p class="text-gray-500">Director Ejecutivo (CEO)</p>
+                    </div>
+                    <!-- Miembro del Equipo 2 -->
+                    <div class="p-4">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop" alt="Carolina Soto" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg">
+                        <h3 class="font-bold text-xl mb-1">Carolina Soto</h3>
+                        <p class="text-gray-500">Jefa de Estrategia</p>
+                    </div>
+                    <!-- Miembro del Equipo 3 -->
+                    <div class="p-4">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Martín Rojas" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg">
+                        <h3 class="font-bold text-xl mb-1">Martín Rojas</h3>
+                        <p class="text-gray-500">Especialista en Marketing Digital</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECCIÓN DE BANNER (LLAMADA A LA ACCIÓN) ========== -->
+        <section class="bg-gray-100">
+            <div class="container mx-auto px-6 py-16 text-center">
+                 <!-- ============== Contenido del banner ============== -->
+                <h2 class="text-3xl font-bold mb-3">¿Listo para llevar tu negocio al siguiente nivel?</h2>
+                <p class="text-gray-600 text-lg mb-6">Conversemos sobre tus metas. Nuestro equipo está preparado para crear una solución a tu medida.</p>
+                <a href="#contacto" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-700 transition-transform transform hover:scale-105">
+                    Contactar Ahora
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== SECCIÓN DEL PIE DE PÁGINA (FOOTER) ========== -->
+    <footer id="contacto" class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- ============== Datos de tu empresa ============== -->
+                <!-- Columna 1: Sobre la Empresa -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4">BIG BUSINESS SpA</h3>
+                    <p class="text-gray-400 mb-2">Transformamos ideas en resultados. Somos un equipo de expertos dedicados a impulsar el éxito de empresas a través de estrategias innovadoras y soluciones digitales efectivas.</p>
+                    <p class="text-gray-500 text-sm">Identificación fiscal: 77.674.881-1</p>
+                </div>
+                
+                <!-- Columna 2: Contacto -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Información de Contacto</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Avenida Providencia N°1223 Of. 222<br>Providencia, Región Metropolitana 7500571<br>Chile</li>
+                        <li>Teléfono: +56927789318</li>
+                        <li>Correo: soporte@bigbusiness.lat</li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 3: Redes Sociales y Web -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Síguenos</h3>
+                    <div class="flex justify-center md:justify-start space-x-4 mb-4">
+                        <!-- Reemplaza '#' con los enlaces a tus redes sociales -->
+                        <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Facebook">
+                           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Instagram">
+                           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.153 1.153 4.902 4.902 0 011.153 2.153c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 2.153 4.902 4.902 0 01-2.153 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.153-1.153 4.902 4.902 0 01-1.153-2.153c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-2.153A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm6.406-11.845a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd" /></svg>
+                        </a>
+                    </div>
+                     <a href="https://www.bigbusiness.lat" class="text-violet-400 hover:text-violet-300 transition">Visita nuestro sitio web</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500">
+                <p>&copy; 2025 BIG BUSINESS SpA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS Y DATOS ========== -->
+    <script>
+        // ============== DATOS DE SERVICIOS ==============
+        const itemsData = [
+            { 
+                id: 1, 
+                title: 'Consultoría Estratégica', 
+                imageUrl: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop',
+                price: 'Consultar',
+                description: 'Analizamos tu negocio para crear un plan de acción claro y efectivo que impulse el crecimiento y la rentabilidad a largo plazo.'
+            },
+            { 
+                id: 2, 
+                title: 'Optimización de Procesos', 
+                imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop', 
+                price: 'Desde $499.000',
+                description: 'Modernizamos y automatizamos tus operaciones internas para aumentar la eficiencia, reducir costos y mejorar la productividad.'
+            },
+            { 
+                id: 3, 
+                title: 'Análisis de Mercado', 
+                imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop', 
+                price: 'Consultar',
+                description: 'Investigamos a fondo tu industria, competidores y público objetivo para identificar oportunidades de crecimiento únicas para tu marca.'
+            }
+        ];
+
+        // --- RENDERIZADO DE SERVICIOS ---
+        function renderItems() {
+            const grid = document.getElementById('items-grid');
+            if (!grid) return;
+            grid.innerHTML = itemsData.map(item => `
+                <div class="bg-gray-50 rounded-lg overflow-hidden group border border-gray-200 flex flex-col">
+                    <div class="relative">
+                        <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6 text-center flex flex-col flex-grow">
+                        <h3 class="font-semibold text-lg mb-2">${item.title}</h3>
+                        <div class="text-gray-600 text-sm my-3 h-24 flex items-center justify-center">
+                            <p>${item.description}</p>
+                        </div>
+                        ${item.price ? `<p class="text-gray-800 font-bold mb-4">${item.price}</p>` : ''}
+                        <div class="mt-auto">
+                           <a href="#contacto" class="w-full inline-block bg-gray-900 text-white font-semibold py-2 px-4 rounded-full hover:bg-gray-700 transition">
+                                Más Información
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- INTEGRACIÓN CON API DE GEMINI ---
+        const ideaInput = document.getElementById('idea-input');
+        const ideasOutput = document.getElementById('ideas-output');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const errorMessage = document.getElementById('error-message');
+
+        async function callGeminiAPI(prompt) {
+            const apiKey = ""; // La clave de API es gestionada por el entorno de ejecución
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            const payload = { contents: [{ parts: [{ text: prompt }] }] };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`Error de API: ${response.statusText}`);
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    return candidate.content.parts[0].text;
+                } else {
+                    throw new Error('No se recibió contenido válido de la API.');
+                }
+            } catch (error) {
+                console.error("Error al llamar a la API de Gemini:", error);
+                throw error;
+            }
+        }
+
+        function formatResponse(text) {
+            const ideas = text.split(':::').map(s => s.trim()).filter(Boolean);
+            let html = '<div class="space-y-6 bg-white p-6 rounded-lg border border-gray-200">';
+            for (let i = 0; i < ideas.length; i += 2) {
+                const title = ideas[i].replace(/\*\*/g, '');
+                const description = ideas[i + 1];
+                if (title && description) {
+                    html += `
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-900">${title}</h4>
+                            <p class="text-gray-600 mt-1">${description}</p>
+                        </div>
+                    `;
+                }
+            }
+            html += '</div>';
+            return html;
+        }
+
+        async function handleGenerateIdeas() {
+            const userInput = ideaInput.value.trim();
+            const generateButton = document.getElementById('generate-button');
+            if (!userInput) {
+                errorMessage.textContent = 'Por favor, introduce una idea o sector.';
+                ideasOutput.innerHTML = '';
+                return;
+            }
+
+            generateButton.disabled = true;
+            generateButton.classList.add('opacity-50', 'cursor-not-allowed');
+            loadingSpinner.classList.remove('hidden');
+            ideasOutput.innerHTML = '';
+            errorMessage.textContent = '';
+
+            const systemPrompt = `Actúa como un consultor de negocios senior para la empresa de consultoría "BIG BUSINESS". Un cliente potencial describe su idea de negocio: "${userInput}". Tu tarea es generar 3 ideas innovadoras y prácticas para diferenciar o mejorar este negocio. Formatea tu respuesta estrictamente de la siguiente manera, usando ':::' como separador: **Título de la Idea 1**:::Descripción de la idea 1.:::**Título de la Idea 2**:::Descripción de la idea 2.:::**Título de la Idea 3**:::Descripción de la idea 3.`;
+
+            try {
+                const responseText = await callGeminiAPI(systemPrompt);
+                ideasOutput.innerHTML = formatResponse(responseText);
+            } catch (error) {
+                errorMessage.textContent = 'Lo sentimos, no se pudieron generar las ideas en este momento. Por favor, inténtalo de nuevo más tarde.';
+            } finally {
+                generateButton.disabled = false;
+                generateButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                loadingSpinner.classList.add('hidden');
+            }
+        }
+
+        // --- INICIALIZACIÓN DE LA PÁGINA ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderItems();
+            const generateButton = document.getElementById('generate-button');
+            if (generateButton) {
+                generateButton.addEventListener('click', handleGenerateIdeas);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
